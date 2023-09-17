@@ -4,7 +4,8 @@ import './App.css';
 import { NotFound } from './components/not-found';
 import { Login } from './feature/auth';
 import { Register } from './feature/auth/';
-import { Home, TypeProduct } from './feature/home';
+import { Home } from './feature/home';
+import { ProductDetails, TypeProductPage } from './feature/product';
 import { Protected } from './routes';
 
 const router = createBrowserRouter([
@@ -32,12 +33,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/type',
-        element: <TypeProduct />,
+        element: <TypeProductPage />,
       },
-      // {
-      //   path: '/detail',
-      //   element: <ProductDetails />,
-      // },
+      {
+        path: '/detail',
+        element: <ProductDetails />,
+      },
     ],
   },
 ]);

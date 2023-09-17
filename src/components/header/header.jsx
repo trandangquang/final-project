@@ -27,6 +27,7 @@ import taycancross from '@/assets/image/taycan-cross.png';
 import taycan from '@/assets/image/taycan.png';
 import { ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import { Badge, Divider, Dropdown, Select } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import './header.scss';
 
 const items = [
@@ -394,16 +395,24 @@ const items = [
 ];
 
 export const Header = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="bg-white h-fit px-44 flex flex-col items-start pb-5">
         <div className="w-full h-full p-[2px]">
           <Divider>
-            <img className="cursor-pointer mb-11" width={133} h={'auto'} src={logo} alt="" />
+            <img
+              onClick={() => navigate('/home')}
+              className="cursor-pointer mb-11"
+              width={133}
+              h={'auto'}
+              src={logo}
+              alt=""
+            />
           </Divider>
         </div>
 
-        <div className="flex flex-row justify-around bg-white h-full w-full items-center">
+        <div className="flex flex-row justify-between bg-white h-full w-full items-center">
           <Dropdown
             menu={{
               items,
@@ -422,12 +431,12 @@ export const Header = () => {
             }}
           />
 
-          <div className="flex items-center gap-3 text-3xl pl-24 cursor-pointer">
+          <div className="flex items-center gap-3 text-3xl cursor-pointer">
             <div>
               <UserOutlined className="hover:text-red-700" />
             </div>
 
-            <div className="text-lg flex-col flex">
+            <div className="text-lg flex-col flex" onClick={() => navigate('/login')}>
               <span className="hover:text-red-700">Sign in / Register</span>
             </div>
 

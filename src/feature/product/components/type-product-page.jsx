@@ -1,12 +1,9 @@
-import { ProductCard } from '@/feature/product';
-import { SlidePage } from './slide';
+import { ProductCard } from './product-card';
 
-export const HomePage = () => {
+export const TypeProductPage = () => {
   return (
     <div>
-      <SlidePage />
-      <div className="gap-3 mt-5 grid grid-cols-4 w-full h-full px-44 py-10">
-        <ProductCard />
+      <div className="mt-5 grid grid-cols-4 gap-3 px-[189px] ">
         <ProductCard />
         <ProductCard />
         <ProductCard />
