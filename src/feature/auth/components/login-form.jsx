@@ -63,7 +63,7 @@ export const LoginForm = props => {
             <div className="flex justify-center mt-8">
               <Button
                 htmlType="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting}   
                 loading={isSubmitting}
                 type="primary"
                 className="rounded-full text-white bg-black w-full h-[50px] sm:text-xl

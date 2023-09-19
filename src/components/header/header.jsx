@@ -418,8 +418,10 @@ export const Header = () => {
               items,
             }}
           >
-            <div className=" hover:text-red-600 text-3xl font-medium leading-10 cursor-pointer">
-              Cars Model
+            <div className=" hover:text-red-600 text-3xl font-medium leading-10 cursor-pointer" 
+            onClick={() => navigate('/home')}
+            >
+              Car Model
             </div>
           </Dropdown>
 
