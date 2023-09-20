@@ -12,7 +12,7 @@ export const AppLayout = props => {
   return (
     <Space>
       <Layout>
-        <Content>
+        <Content className="overflow-x-hidden">
           <Header />
           <Suspense
             fallback={

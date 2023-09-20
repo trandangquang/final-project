@@ -4,6 +4,7 @@ import slide3 from '@/assets/image/slide3.jpg';
 import slide4 from '@/assets/image/slide4.jpg';
 import slide5 from '@/assets/image/slide5.jpg';
 import { Carousel } from 'antd';
+import './slide-page.scss';
 
 export const SlidePage = () => {
   return (

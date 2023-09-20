@@ -25,8 +25,10 @@ import porschebgboxster from '@/assets/image/porsche-bg.jpg';
 import styleedition from '@/assets/image/style-edition-718.png';
 import taycancross from '@/assets/image/taycan-cross.png';
 import taycan from '@/assets/image/taycan.png';
+import { auth } from '@/firebase';
 import { ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import { Badge, Divider, Dropdown, Select } from 'antd';
+import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import './header.scss';
 
@@ -396,6 +398,18 @@ const items = [
 
 export const Header = () => {
   const navigate = useNavigate();
+  const getUid = localStorage.getItem('uid');
+
+  const handleLogOut = () => {
+    signOut(auth)
+      .then(() => {
+        navigate('/login');
+        localStorage.clear();
+        console.log('Signed out successfully');
+      })
+      .catch(e => {});
+  };
+
   return (
     <>
       <div className="bg-white h-fit px-44 flex flex-col items-start pb-5">
@@ -418,8 +432,9 @@ export const Header = () => {
               items,
             }}
           >
-            <div className=" hover:text-red-600 text-3xl font-medium leading-10 cursor-pointer" 
-            onClick={() => navigate('/home')}
+            <div
+              className=" hover:text-red-600 text-3xl font-medium leading-10 cursor-pointer"
+              onClick={() => navigate('/home')}
             >
               Car Model
             </div>
@@ -438,8 +453,16 @@ export const Header = () => {
               <UserOutlined className="hover:text-red-700" />
             </div>
 
-            <div className="text-lg flex-col flex" onClick={() => navigate('/login')}>
-              <span className="hover:text-red-700">Sign in / Register</span>
+            <div className="text-lg flex-col flex">
+              {getUid ? (
+                <span className="hover:text-red-700" onClick={handleLogOut}>
+                  Log out
+                </span>
+              ) : (
+                <span className="hover:text-red-700" onClick={() => navigate('/login')}>
+                  Sign in / Register
+                </span>
+              )}
             </div>
 
             <div className="pl-5 ">
